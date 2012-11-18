@@ -1,35 +1,11 @@
 require 'find'
 
 namespace :integration do
-  def project_name
-    File.expand_path(Rails.root).split("/").last
-  end
 
   def p80(message)
     puts "-"*80
     puts message if message
     yield if block_given?
-  end
-
-  def remove_old_backups(backup_dir)
-    backups_to_keep = ENV['NUMBER_OF_BACKUPS_TO_KEEP'] || 30
-    backups = []
-    Find.find(backup_dir) { |file_name| backups << file_name if !File.directory?(file_name) && file_name =~ /.*\.tar.gz$/ }
-    backups.sort!
-    (backups - backups.last(backups_to_keep - 1)).each do |file_name|
-      puts "Removing #{file_name}..."
-      FileUtils.rm(file_name)
-    end
-  end
-
-  namespace :backup do
-    desc 'Creates a backup of the project in the local disk.'
-    task :local do
-      backup_dir = '../backups/backup-' + project_name
-      sh "mkdir -p #{backup_dir}" if !FileTest.exists?(backup_dir)
-      remove_old_backups(backup_dir)
-      sh "tar cfz #{backup_dir}/#{project_name}-#{Time.now.strftime('%Y%m%d-%H%M%S')}.tar.gz ."
-    end
   end
 
   namespace :git do
@@ -53,7 +29,7 @@ namespace :integration do
     end
   end
 
-  task :start => ["git:status_check", "log:clear", "tmp:clear", "backup:local", "git:pull"] do
+  task :start => ["git:status_check", "log:clear", "tmp:clear", "git:pull"] do
     ENV['coverage'] = 'on'
   end
   task :finish => ["git:push"]
