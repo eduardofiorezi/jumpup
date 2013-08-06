@@ -2,14 +2,14 @@
 
 ## What
 
-Integration is a [Ruby on Rails][ror] plugin that provides a set of tasks to automate all steps of a [synchronous continuous integration][sci] process, that is, [continuous integration][ci] without a server such as [CruiseControl][cc]. Why? Because that's the way we like it!
+HE:Integration is a [Ruby on Rails][ror] plugin that provides a set of tasks to automate all steps of a [synchronous continuous integration][sci] process, that is, [continuous integration][ci] without a server such as [CruiseControl][cc]. Why? Because that's the way we like it!
 
 ## Installing
 
 Add it to your Gemfile:
 
-    group :test, :development do
-      gem 'integration', :git => 'git://github.com/mergulhao/integration.git'
+    group :development do
+      gem 'he_integration'
     end
 
 After installing the plugin is ready to be used and you will need to execute only one task in order to integrate your code safely:
@@ -39,77 +39,77 @@ The "coverage" variable is set to "on" by the integration process. When running 
 
 The integration process is composed of several steps that are explained ahead. It's possible to skip one or more steps and add other steps of your own. This will be demonstrated shortly. The complete set of steps are:
 
-1. task git:status_check  
+1. task git:status_check
 
-	Check if all local files are under control of your scm.
+  Check if all local files are under control of your scm.
 
-* task log:clear  
+* task log:clear
 
-	Remove log files.
-	
-* task tmp:clear  
+  Remove log files.
 
-	Remove temporary files.
+* task tmp:clear
 
-* task backup:local  
+  Remove temporary files.
 
-	Backup files locally. This is done before scm update to create a recovery point if you have problems during scm update. If a file merge creates undesirable effects on the software, you can recover from the backup file.
-	Backup file names have a timestamp. By default, the last 30 backups are kept. You may change this number as you'll see shortly. This task won't work on Windows because it uses [tar][]. So, if you're using Windows you'll have to write your own version of this task or just stop using Windows. We highly recommend the later.
+* task backup:local
 
-* task git:pull  
+  Backup files locally. This is done before scm update to create a recovery point if you have problems during scm update. If a file merge creates undesirable effects on the software, you can recover from the backup file.
+  Backup file names have a timestamp. By default, the last 30 backups are kept. You may change this number as you'll see shortly. This task won't work on Windows because it uses [tar][]. So, if you're using Windows you'll have to write your own version of this task or just stop using Windows. We highly recommend the later.
 
-	Update local files from your remote scm repository.
+* task git:pull
+
+  Update local files from your remote scm repository.
 
 * task db:migrate
 
-	Execute any new database migration created by other team members since the last integration.
-	
-* Your test/spec suite  
+  Execute any new database migration created by other team members since the last integration.
 
-	Set the rake task your test/spec suite needs to run. Use a command that generate the coverage files.
+* Your test/spec suite
 
-* coverage_verify  
+  Set the rake task your test/spec suite needs to run. Use a command that generate the coverage files.
 
-	Check if tests/specs cover 100% of the application code.
+* coverage_verify
+
+  Check if tests/specs cover 100% of the application code.
 
 * git:push
 
-	Push your changes. If any of the previous tasks break, because one test failed, for instance, the script won't push. Actually this task runs only if every checking done before work well.
-	
-Using this almost paranoid sequence of steps it will be hard to check in bad code in your repository, which is good, very good. The idea is that you should treat your repository as a sacred place, where only good code should ever enter.  	
+  Push your changes. If any of the previous tasks break, because one test failed, for instance, the script won't push. Actually this task runs only if every checking done before work well.
+
+Using this almost paranoid sequence of steps it will be hard to check in bad code in your repository, which is good, very good. The idea is that you should treat your repository as a sacred place, where only good code should ever enter.
 
 ### More examples
 
 * Reckless programmer
 
-	So you don't have tests, nor specs but you still want to use the integration. You might get away with this customized lib/tasks/integration.rake:
-	
-	    INTEGRATION_TASKS = %w(
-	        integration:start
+  So you don't have tests, nor specs but you still want to use the integration. You might get away with this customized lib/tasks/integration.rake:
+
+      INTEGRATION_TASKS = %w(
+          integration:start
           db:migrate
           integration:finish
           )
 
-	The fact that you can get away with this doesn't mean you should. Don't you think it's already time to grow up and become more professional about software development? I know you believe you have a great excuse to avoid writing those tests or specs. Still it's just an excuse. Write tests or write specs and make a better world!
+  The fact that you can get away with this doesn't mean you should. Don't you think it's already time to grow up and become more professional about software development? I know you believe you have a great excuse to avoid writing those tests or specs. Still it's just an excuse. Write tests or write specs and make a better world!
 
 * Test conscious programmer
 
- 	You haven't jumped on the [BDD][] bandwagon yet. Instead, you write tests, which is good, but they don't cover all of your code yet, which is bad. We believe you will [improve it][ii] and make sure your tests cover 100% of your code. In the meantime you might need to skip coverage checkings. Oh, you also don't use [Selenium][sor]. Shame on you! Try this:
+   You haven't jumped on the [BDD][BDD] bandwagon yet. Instead, you write tests, which is good, but they don't cover all of your code yet, which is bad. We believe you will improve it and make sure your tests cover 100% of your code. In the meantime you might need to skip coverage checkings. Oh, you also don't use [Selenium][sor]. Shame on you! Try this:
 
-	    INTEGRATION_TASKS = %w(
-	        integration:start
+      INTEGRATION_TASKS = %w(
+          integration:start
           db:migrate
           test
           integration:finish
           )
 
-	As a matter of fact, since this case might be very common, **we decided to create a lib/tasks/integration.rake for you once the plugin has been installed. It has this very configuration and you can use it as a starting point to customize your integration process**.
+  As a matter of fact, since this case might be very common, **we decided to create a lib/tasks/integration.rake for you once the plugin has been installed. It has this very configuration and you can use it as a starting point to customize your integration process**.
 
 * Spec infected programmer
 
-	So you used to [TDD][] all around but then someone told you that this is for gramma. The new wave has a name on it: [BDD][]. So, of course, you now have specs covering 100% of your code and doesn't have any more tests. Great! Just do it:
-	
-	    INTEGRATION_TASKS = %w(
+  So you used to [TDD][TDD] all around but then someone told you that this is for gramma. The new wave has a name on it: [BDD][BDD]. So, of course, you now have specs covering 100% of your code and doesn't have any more tests. Great! Just do it:
+
+      INTEGRATION_TASKS = %w(
           integration:start
           db:migrate
           spec
@@ -117,18 +117,9 @@ Using this almost paranoid sequence of steps it will be hard to check in bad cod
           integration:finish
           )
 
-## Version
+## Versioning
 
-Integration version 0.3.0
-
-## Release Notes
-
-* Version 0.3.0 - Remove old svn support. Add support for Simplecov on Ruby 1.9.
-* Version 0.2.4 - Added support for git and git-svn. Thanks to [Sylvestre Mergulhão][sm] and [Eduardo Fiorezi][edu].
-* Version 0.2.3 - BUG FIX: Rake db:migrate fails when default RAILS\_ENV is used. Thanks to Celestino Gomes for fix this bug.
-* Version 0.2.2 - Removed vendor/plugins/* commit. This commit is necessary when use plugins with externals but it is not a good practice. Piston is the correct way to use externals plugins. If you want to use externals commit in your integration process you can create a svn:commit:after task.
-* Version 0.2.1 - BUG FIX: Setting 'RAILS\_ENV' wasn't affecting migrations. This bug fix changes this behavior and makes sure that 'RAILS_ENV' set by the user will always be respected, for all tasks. Thanks to Sylvestre Mergulhão for point this out.
-* Version 0.2   - Added support for SKIP\_COMMIT\_MESSAGES'.
+HE:integration follow the [Semantic Versioning](http://semver.org/).
 
 ## License
 
@@ -140,39 +131,32 @@ Comments are welcome.
 
 ## Authors
 
-[Marcos Tapajós][mt]  
-[Sylvestre Mergulhão][sm]  
-[Vinícius Teles][vt]
+He:integration came from the idea of [integration](https://github.com/tapajos/integration). Thanks to Improve It and the original authors:
 
-## Shameless advertisement
+* [Marcos Tapajós][mt]
+* [Sylvestre Mergulhão][sm]
+* [Vinícius Teles][vt]
 
-This plugin is brought to you by [Improve It][ii].
 
-[![Improve It][logo]][ii]
-
-[logo]: 	http://www.improveit.com.br/images/logo/logo_improve_it_screen.gif "Improve It"
-
-[piston]:	http://piston.rubyforge.org/
-[mt]:		https://github.com/tapajos
+[piston]:  http://piston.rubyforge.org/
+[mt]:    https://github.com/tapajos
 [sm]:   https://github.com/mergulhao
-[vt]:		http://www.improveit.com.br/vinicius
-[f]:		http://rubyforge.org/forum/?group_id=4662
-[s]:		http://subversion.tigris.org
+[vt]:    http://www.improveit.com.br/vinicius
+[f]:    http://rubyforge.org/forum/?group_id=4662
+[s]:    http://subversion.tigris.org
 [git]:  http://git.or.cz/
-[h]:		http://code.whytheluckystiff.net/hpricot
-[rc]:		http://eigenclass.org/hiki.rb?rcov
-[sc]:		https://github.com/colszowka/simplecov
-[sor]:	http://selenium-on-rails.openqa.org
-[rs]:		http://rspec.info
-[rz]:		http://rubyzip.sourceforge.net/
-[ror]:	http://www.rubyonrails.org
-[sci]:	http://jamesshore.com/Blog/Why%20I%20Dont%20Like%20CruiseControl.html
-[ii]:		http://www.improveit.com.br/en
-[co]:		http://www.improveit.com.br/en/contact
-[mit]:	http://www.opensource.org/licenses/mit-license.php
+[h]:    http://code.whytheluckystiff.net/hpricot
+[rc]:    http://eigenclass.org/hiki.rb?rcov
+[sc]:    https://github.com/colszowka/simplecov
+[sor]:  http://selenium-on-rails.openqa.org
+[rs]:    http://rspec.info
+[rz]:    http://rubyzip.sourceforge.net/
+[ror]:  http://www.rubyonrails.org
+[sci]:  http://jamesshore.com/Blog/Why%20I%20Dont%20Like%20CruiseControl.html
+[co]:    http://www.improveit.com.br/en/contact
+[mit]:  http://www.opensource.org/licenses/mit-license.php
 [ci]:   http://martinfowler.com/articles/continuousIntegration.html
 [cc]:   http://cruisecontrol.sourceforge.net
 [tar]:  http://en.wikipedia.org/wiki/Tar_%28file_format%29
 [BDD]:  http://en.wikipedia.org/wiki/Behavior_driven_development
 [TDD]:  http://en.wikipedia.org/wiki/Test-driven_development
-[edu]:  http://tudoquequerosaber.com/
