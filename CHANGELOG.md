@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.0.2 (August 06, 2013)
+
+### features
+
+### improvements
+
+- removed fixed rubygem
+
+### bug fixes
+
+
 ## 0.0.1 (August 06, 2013)
 
 ### features
