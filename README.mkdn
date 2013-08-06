@@ -84,11 +84,11 @@ Using this almost paranoid sequence of steps it will be hard to check in bad cod
 
   So you don't have tests, nor specs but you still want to use the integration. You might get away with this customized lib/tasks/integration.rake:
 
-      INTEGRATION_TASKS = %w(
+        INTEGRATION_TASKS = %w(
           integration:start
           db:migrate
           integration:finish
-          )
+        )
 
   The fact that you can get away with this doesn't mean you should. Don't you think it's already time to grow up and become more professional about software development? I know you believe you have a great excuse to avoid writing those tests or specs. Still it's just an excuse. Write tests or write specs and make a better world!
 
