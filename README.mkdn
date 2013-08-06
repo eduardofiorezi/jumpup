@@ -1,8 +1,8 @@
-# JumpUp
+# Jumpup
 
 ## What
 
-JumpUp is a [Ruby on Rails][ror] plugin that provides a set of tasks to automate all steps of a [synchronous continuous integration][sci] process, that is, [continuous integration][ci] without a server such as [CruiseControl][cc]. Why? Because that's the way we like it!
+Jumpup is a [Ruby on Rails][ror] plugin that provides a set of tasks to automate all steps of a [synchronous continuous integration][sci] process, that is, [continuous integration][ci] without a server such as [CruiseControl][cc]. Why? Because that's the way we like it!
 
 ## Installing
 
@@ -119,7 +119,7 @@ Using this almost paranoid sequence of steps it will be hard to check in bad cod
 
 ## Versioning
 
-JumpUp follow the [Semantic Versioning](http://semver.org/).
+Jumpup follow the [Semantic Versioning](http://semver.org/).
 
 ## License
 
@@ -131,7 +131,7 @@ Comments are welcome.
 
 ## Authors
 
-JumpUp came from the idea of [integration](https://github.com/tapajos/integration). Thanks to [Improve It][ii] and the original authors:
+Jumpup came from the idea of [integration](https://github.com/tapajos/integration). Thanks to [Improve It][ii] and the original authors:
 
 * [Marcos Tapajós][mt]
 * [Sylvestre Mergulhão][sm]

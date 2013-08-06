@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'he_integration/version'
+require 'jumpup/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "he_integration"
-  spec.version       = HeIntegration::VERSION
+  spec.name          = "jumpup"
+  spec.version       = Jumpup::VERSION
   spec.authors       = ["HE:labs"]
   spec.email         = ["contato@helabs.com.br"]
   spec.description   = %q{A synchronous continuous integration gem.}
-  spec.summary       = %q{HE:Integration gem help people that want to do synchronous continuous integration on their ruby projects.}
-  spec.homepage      = "https://github.com/Helabs/integration"
+  spec.summary       = %q{Jumpup gem help people that want to do synchronous continuous integration on their ruby projects.}
+  spec.homepage      = "https://github.com/Helabs/jumpup"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)

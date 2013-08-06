@@ -4,11 +4,9 @@
 
 ### features
 
-- Changed integration to a gem named jumpup
+- Changed integration to a gem named Jumpup
 
 ### improvements
-
-- Better readme
 
 ### bug fixes
 
