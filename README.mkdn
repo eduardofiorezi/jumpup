@@ -1,15 +1,15 @@
-# HE:Integration
+# JumpUp
 
 ## What
 
-HE:Integration is a [Ruby on Rails][ror] plugin that provides a set of tasks to automate all steps of a [synchronous continuous integration][sci] process, that is, [continuous integration][ci] without a server such as [CruiseControl][cc]. Why? Because that's the way we like it!
+JumpUp is a [Ruby on Rails][ror] plugin that provides a set of tasks to automate all steps of a [synchronous continuous integration][sci] process, that is, [continuous integration][ci] without a server such as [CruiseControl][cc]. Why? Because that's the way we like it!
 
 ## Installing
 
 Add it to your Gemfile:
 
     group :development do
-      gem 'he_integration'
+      gem 'jumpup'
     end
 
 After installing the plugin is ready to be used and you will need to execute only one task in order to integrate your code safely:
@@ -82,7 +82,7 @@ Using this almost paranoid sequence of steps it will be hard to check in bad cod
 
 * Reckless programmer
 
-  So you don't have tests, nor specs but you still want to use the integration. You might get away with this customized lib/tasks/integration.rake:
+  So you don't have tests, nor specs but you still want to use the jumpup. You might get away with this customized lib/tasks/integration.rake:
 
         INTEGRATION_TASKS = %w(
           integration:start
@@ -119,7 +119,7 @@ Using this almost paranoid sequence of steps it will be hard to check in bad cod
 
 ## Versioning
 
-HE:integration follow the [Semantic Versioning](http://semver.org/).
+JumpUp follow the [Semantic Versioning](http://semver.org/).
 
 ## License
 
@@ -131,7 +131,7 @@ Comments are welcome.
 
 ## Authors
 
-He:integration came from the idea of [integration](https://github.com/tapajos/integration). Thanks to [Improve It][ii] and the original authors:
+JumpUp came from the idea of [integration](https://github.com/tapajos/integration). Thanks to [Improve It][ii] and the original authors:
 
 * [Marcos Tapajós][mt]
 * [Sylvestre Mergulhão][sm]
