@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["HE:labs"]
   spec.email         = ["contato@helabs.com.br"]
   spec.description   = %q{A synchronous continuous integration gem.}
-  spec.summary       = %q{Integration gem help people that want to do synchronous continuous integration on their ruby projects.}
+  spec.summary       = %q{HE:Integration gem help people that want to do synchronous continuous integration on their ruby projects.}
   spec.homepage      = "https://github.com/Helabs/integration"
   spec.license       = "MIT"
 
