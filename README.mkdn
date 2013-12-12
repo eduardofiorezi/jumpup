@@ -19,7 +19,6 @@ After installing the plugin is ready to be used and you will need to execute onl
 ## Dependencies
 
 * Git
-* [Hpricot][h] to verify coverage
 * [Rcov][rc](Ruby 1.8) or [Simplecov][sc](Ruby 1.9) (optional)
 
 ## [ProTip] Using Simplecov
@@ -119,7 +118,7 @@ Using this almost paranoid sequence of steps it will be hard to check in bad cod
 
 ## Versioning
 
-Jumpup follow the [Semantic Versioning](http://semver.org/).
+Jumpup follows the [Semantic Versioning](http://semver.org/).
 
 ## License
 
@@ -145,7 +144,6 @@ Jumpup came from the idea of [integration](https://github.com/tapajos/integratio
 [f]:    http://rubyforge.org/forum/?group_id=4662
 [s]:    http://subversion.tigris.org
 [git]:  http://git.or.cz/
-[h]:    http://code.whytheluckystiff.net/hpricot
 [rc]:    http://eigenclass.org/hiki.rb?rcov
 [sc]:    https://github.com/colszowka/simplecov
 [sor]:  http://selenium-on-rails.openqa.org
