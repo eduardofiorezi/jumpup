@@ -7,9 +7,9 @@ class CoverageTest < Test::Unit::TestCase
     covered_percent = last_run['result']['covered_percent']
 
     if covered_percent < 100
-      puts "Bad Boy! Coverage is #{covered_percent}% < 100%..."
+      puts "\nBad Boy! Coverage is #{covered_percent}% < 100%..."
     else
-      puts "Congratulations! Your coverage is 100%!"
+      puts "\nCongratulations! Your coverage is 100%!"
     end
   end
 end
