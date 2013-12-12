@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.0.2 (unreleased)
+
+### features
+
+### improvements
+
+- Remove hpricot dependency
+- Test against ```coverage/.last_run.json``` file
+
+### bug fixes
+
 ## 0.0.1 (August 06, 2013)
 
 ### features
