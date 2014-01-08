@@ -1,6 +1,6 @@
 require 'find'
 
-namespace :integration do
+namespace :jumpup do
 
   def p80(message)
     puts "-"*80
@@ -50,20 +50,19 @@ desc 'Integrate new code to repository'
 task :integrate do
   if !defined?(INTEGRATION_TASKS)
     p80 %{
-You should define INTEGRATION_TASKS constant. We recommend that you define it on lib/tasks/integration.rake file. The file doesn't exists. You should create it in your project.
+You should define INTEGRATION_TASKS constant. We recommend that you define it on lib/tasks/jumpup.rake file. The file doesn't exists. You should create it in your project.
 
 You'll probably want to add coverage/ to your .gitignore file.
 
 A sample content look like this:
 
 INTEGRATION_TASKS = %w(
-  integration:start
-  integration:bundle_install
+  jumpup:start
+  jumpup:bundle_install
   db:migrate
   spec
-  integration:coverage_verify
-  jasmine:ci
-  integration:finish
+  jumpup:coverage_verify
+  jumpup:finish
 )
 
 }

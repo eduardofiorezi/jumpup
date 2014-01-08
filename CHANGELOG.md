@@ -8,6 +8,7 @@
 
 - Remove hpricot dependency
 - Test against ```coverage/.last_run.json``` file
+- Renamed namespace `integration` to `jumpup` file
 
 ### bug fixes
 
