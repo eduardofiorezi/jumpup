@@ -6,10 +6,7 @@ class CoverageTest < Test::Unit::TestCase
     last_run = JSON.parse(File.read(COVERAGE_FILE))
     covered_percent = last_run['result']['covered_percent']
 
-    if covered_percent < 100
-      puts "\nBad Boy! Coverage is #{covered_percent}% < 100%..."
-    else
-      puts "\nCongratulations! Your coverage is 100%!"
-    end
+    assert_equal 100, covered_percent, "\nBad Boy! Coverage is #{covered_percent}% < 100%..."
+    puts "\nCongratulations! Your coverage is 100%!"
   end
 end
