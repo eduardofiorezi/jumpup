@@ -41,7 +41,9 @@ namespace :jumpup do
 
   desc 'Run bundle install'
   task :bundle_install do
-    sh 'bundle install --quiet'
+    Bundler.with_clean_env do
+      sh 'bundle install --quiet'
+    end
   end
 
 end
