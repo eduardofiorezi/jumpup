@@ -10,6 +10,7 @@
 - Add info about how release the gem
 - Add info about issues
 - Add info about contributing
+- Add info about credits
 
 ### bug fixes
 
