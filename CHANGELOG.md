@@ -6,6 +6,8 @@
 
 ### improvements
 
+- Create a CONTRIBUTING file
+
 ### bug fixes
 
 - Fix bundle install on bundler 1.5.2 when have gems from github
