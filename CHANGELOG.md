@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.0.3 (January 17, 2014)
+
+### features
+
+### improvements
+
+- Name correct tasks on README
+- Fix coverage bug
+- Add rake dependency as 0
+
+### bug fixes
+
 ## 0.0.2 (January 8, 2014)
 
 ### features
