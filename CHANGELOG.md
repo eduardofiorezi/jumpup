@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.0.4 (unreleased)
+
+### features
+
+### improvements
+
+### bug fixes
+
+- Fix bundle install on bundler 1.5.2 when have gems from github
+
 ## 0.0.3 (January 17, 2014)
 
 ### features
@@ -7,10 +17,11 @@
 ### improvements
 
 - Name correct tasks on README
-- Fix coverage bug
 - Add rake dependency as 0
 
 ### bug fixes
+
+- Fix coverage that dont stop the integrate
 
 ## 0.0.2 (January 8, 2014)
 
