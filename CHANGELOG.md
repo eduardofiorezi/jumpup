@@ -4,6 +4,8 @@
 
 ### features
 
+- Add rake quality check
+
 ### improvements
 
 - Create a CONTRIBUTING file

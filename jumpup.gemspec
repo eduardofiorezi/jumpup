@@ -18,6 +18,12 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
+  spec.add_dependency 'rubocop',              '0.17.0'
+  spec.add_dependency 'brakeman',             '2.3.1'
+  spec.add_dependency 'metric_fu',            '4.7.2'
+  spec.add_dependency 'sandi_meter',          '1.0.5'
+  spec.add_dependency 'mago',                 '0.1.0'
+
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake",    "~> 0"
 end
