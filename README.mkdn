@@ -116,6 +116,10 @@ Using this almost paranoid sequence of steps it will be hard to check in bad cod
           jumpup:finish
         )
 
+## Quality check
+
+Jumpup has included some tasks to check quality. Just run `$ rake quality:check`.
+
 ## Versioning
 
 Jumpup follows the [Semantic Versioning](http://semver.org/).
