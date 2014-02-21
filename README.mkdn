@@ -1,8 +1,9 @@
 # Jumpup
+[![RubyGems][gem_version_badge]][ruby_gems]
 
 ## What
 
-Jumpup is a [Ruby on Rails][ror] plugin that provides a set of tasks to automate all steps of a [synchronous continuous integration][sci] process, that is, [continuous integration][ci] without a server such as [CruiseControl][cc]. Why? Because that's the way we like it!
+Jumpup is a [Ruby on Rails][ror] gem that provides a set of tasks to automate all steps of a [synchronous continuous integration][sci] process, that is, [continuous integration][ci] without a server such as [Travis][travis]. Why? Because that's the way we like it!
 
 ## Installing
 
@@ -12,7 +13,7 @@ Add it to your Gemfile:
       gem 'jumpup'
     end
 
-After installing the plugin is ready to be used and you will need to execute only one task in order to integrate your code safely:
+After installing the gem is ready to be used and you will need to execute only one task in order to integrate your code safely:
 
     rake integrate
 
@@ -102,7 +103,7 @@ Using this almost paranoid sequence of steps it will be hard to check in bad cod
           jumpup:finish
         )
 
-  As a matter of fact, since this case might be very common, **we decided to create a lib/tasks/integration.rake for you once the plugin has been installed. It has this very configuration and you can use it as a starting point to customize your integration process**.
+  As a matter of fact, since this case might be very common, **we decided to create a lib/tasks/integration.rake for you once the gem has been installed. It has this very configuration and you can use it as a starting point to customize your integration process**.
 
 * Spec infected programmer
 
@@ -161,6 +162,8 @@ Jumpup is maintained and funded by [HE:labs](http://helabs.com.br/opensource/).
 Thank you to all the [contributors](https://github.com/Helabs/jumpup/graphs/contributors).
 
 
+[gem_version_badge]: https://badge.fury.io/rb/jumpup.png
+[ruby_gems]: http://rubygems.org/gems/jumpup
 [piston]:  http://piston.rubyforge.org/
 [mt]:    https://github.com/tapajos
 [sm]:   https://github.com/mergulhao
@@ -178,7 +181,7 @@ Thank you to all the [contributors](https://github.com/Helabs/jumpup/graphs/cont
 [co]:    http://www.improveit.com.br/en/contact
 [mit]:  http://www.opensource.org/licenses/mit-license.php
 [ci]:   http://martinfowler.com/articles/continuousIntegration.html
-[cc]:   http://cruisecontrol.sourceforge.net
+[travis]: http://travis-ci.org
 [tar]:  http://en.wikipedia.org/wiki/Tar_%28file_format%29
 [BDD]:  http://en.wikipedia.org/wiki/Behavior_driven_development
 [TDD]:  http://en.wikipedia.org/wiki/Test-driven_development
