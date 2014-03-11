@@ -73,7 +73,6 @@ INTEGRATION_TASKS = %w(
 
   INTEGRATION_TASKS.each do |subtask|
     p80("Executing #{subtask}...") do
-      RAILS_ENV ||= ENV['RAILS_ENV'] || 'development'
       Rake::Task[subtask].invoke
     end
   end
