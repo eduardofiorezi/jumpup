@@ -148,6 +148,10 @@ This code is free to be used under the terms of the [MIT license][mit].
 
 Comments are welcome.
 
+## Maintainers
+
+- [Thiago Borges](https://github.com/thiagogabriel)
+
 ## Authors
 
 Jumpup came from the idea of [integration](https://github.com/tapajos/integration). Thanks to [Improve It][ii] and the original authors:
