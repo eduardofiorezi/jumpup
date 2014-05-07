@@ -1,6 +1,6 @@
-%w(test/unit rubygems json).each { |lib| require lib }
+%w(minitest/autorun rubygems json).each { |lib| require lib }
 
-class CoverageTest < Test::Unit::TestCase
+class CoverageTest < Minitest::Test
   COVERAGE_FILE = "coverage/.last_run.json"
   def test_if_application_is_fully_covered
     last_run = JSON.parse(File.read(COVERAGE_FILE))
