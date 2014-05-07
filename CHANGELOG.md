@@ -8,6 +8,7 @@
 
 ### bug fixes
 - Fix warning message about `RAILS_ENV` on rails `>= 4.1`
+- Fix the coverage verify to works on Rails `>= 4.1`
 
 ## 0.0.4 (February 21, 2014)
 
