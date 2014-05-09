@@ -160,10 +160,11 @@ Jumpup came from the idea of [integration](https://github.com/tapajos/integratio
 * [Sylvestre Mergulhão][sm]
 * [Vinícius Teles][vt]
 
-## Credits
+## Made with love by HE:labs
 
-Jumpup is maintained and funded by [HE:labs](http://helabs.com.br/opensource/).
-Thank you to all the [contributors](https://github.com/Helabs/jumpup/graphs/contributors).
+![HE:labs](http://helabs.com.br/images/logo.png)
+
+This gem was created and is maintained by [HE:labs](https://github.com/Helabs).
 
 
 [gem_version_badge]: https://badge.fury.io/rb/jumpup.png
