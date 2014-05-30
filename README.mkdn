@@ -151,6 +151,7 @@ Comments are welcome.
 ## Maintainers
 
 - [Thiago Borges](https://github.com/thiagogabriel)
+- [Mauro George](https://github.com/maurogeorge)
 
 ## Authors
 
