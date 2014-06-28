@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Jumpup do
+RSpec.describe Jumpup do
   before do
     Object.send(:remove_const, :INTEGRATION_TASKS) if Object.const_defined?(:INTEGRATION_TASKS)
     require "stringio"
@@ -31,5 +31,4 @@ describe Jumpup do
     it { expect(@output.string).to include("Two") }
     it { expect(@output.string).to include("Three") }
   end
-
 end
