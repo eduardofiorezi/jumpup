@@ -1,15 +1,10 @@
 require "spec_helper"
 
 RSpec.describe Jumpup do
+  include_examples "capture stdout"
+
   before do
     Object.send(:remove_const, :INTEGRATION_TASKS) if Object.const_defined?(:INTEGRATION_TASKS)
-    require "stringio"
-    $stdout = StringIO.new
-    @output = $stdout
-  end
-
-  after do
-    $stdout = STDOUT
   end
 
   describe "INTEGRATION_TASKS is not defined"  do
