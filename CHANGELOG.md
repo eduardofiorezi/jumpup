@@ -3,6 +3,7 @@
 ## 0.0.6 (unreleased)
 
 ### features
+- Transfer coverage verification to simplecov
 
 ### improvements
 

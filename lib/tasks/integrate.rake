@@ -34,11 +34,6 @@ namespace :jumpup do
   end
   task :finish => ["git:push"]
 
-  desc 'Check code coverage'
-  task :coverage_verify do
-    sh "ruby #{File.expand_path(File.dirname(__FILE__) + '/../../test/coverage_test.rb')}"
-  end
-
   desc 'Run bundle install'
   task :bundle_install do
     Bundler.with_clean_env do
@@ -63,7 +58,6 @@ INTEGRATION_TASKS = %w(
   jumpup:bundle_install
   db:migrate
   spec
-  jumpup:coverage_verify
   jumpup:finish
 )
 
