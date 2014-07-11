@@ -3,7 +3,7 @@
 
 ## What
 
-Jumpup is a [Ruby on Rails][ror] gem that provides a set of tasks to automate all steps of a [synchronous continuous integration][sci] process, that is, [continuous integration][ci] without a server such as [Travis][travis]. Why? Because that's the way we like it!
+Jumpup is a [Ruby on Rails][ror] gem that provides a set of tasks to automate all steps of a [synchronous continuous integration][sci] process, that is, [continuous integration][ci] without a server such as [Travis][travis]. Why? Because that's the way [we][helabs] like it!
 
 ## Installing
 
@@ -165,3 +165,4 @@ This gem was created and is maintained by [HE:labs](https://github.com/Helabs).
 [BDD]:  http://en.wikipedia.org/wiki/Behavior_driven_development
 [TDD]:  http://en.wikipedia.org/wiki/Test-driven_development
 [ii]:   http://www.improveit.com.br
+[helabs]: http://helabs.com.br/en/
