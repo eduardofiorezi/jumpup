@@ -94,8 +94,6 @@ Using this almost paranoid sequence of steps it will be hard to check in bad cod
           jumpup:finish
         )
 
-  As a matter of fact, since this case might be very common, **we decided to create a lib/tasks/integration.rake for you once the gem has been installed. It has this very configuration and you can use it as a starting point to customize your integration process**.
-
 * Spec infected programmer
 
   So you used to [TDD][TDD] all around but then someone told you that this is for gramma. The new wave has a name on it: [BDD][BDD]. So, of course, you now have specs covering 100% of your code and doesn't have any more tests. Great! Just change your test_helper.rb/spec_helper.rb with:
