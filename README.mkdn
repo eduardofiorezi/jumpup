@@ -150,25 +150,18 @@ This gem was created and is maintained by [HE:labs](https://github.com/Helabs).
 
 [gem_version_badge]: https://badge.fury.io/rb/jumpup.png
 [ruby_gems]: http://rubygems.org/gems/jumpup
-[piston]:  http://piston.rubyforge.org/
 [mt]:    https://github.com/tapajos
 [sm]:   https://github.com/mergulhao
 [vt]:    http://www.improveit.com.br/vinicius
-[f]:    http://rubyforge.org/forum/?group_id=4662
-[s]:    http://subversion.tigris.org
-[git]:  http://git.or.cz/
 [rc]:    http://eigenclass.org/hiki.rb?rcov
 [sc]:    https://github.com/colszowka/simplecov
 [sor]:  http://selenium-on-rails.openqa.org
 [rs]:    http://rspec.info
-[rz]:    http://rubyzip.sourceforge.net/
 [ror]:  http://www.rubyonrails.org
 [sci]:  http://jamesshore.com/Blog/Why%20I%20Dont%20Like%20CruiseControl.html
-[co]:    http://www.improveit.com.br/en/contact
 [mit]:  http://www.opensource.org/licenses/mit-license.php
 [ci]:   http://martinfowler.com/articles/continuousIntegration.html
 [travis]: http://travis-ci.org
-[tar]:  http://en.wikipedia.org/wiki/Tar_%28file_format%29
 [BDD]:  http://en.wikipedia.org/wiki/Behavior_driven_development
 [TDD]:  http://en.wikipedia.org/wiki/Test-driven_development
 [ii]:   http://www.improveit.com.br
