@@ -48,10 +48,5 @@ Feature: Git
     And I run `rake integrate`
     Then the stdout should contain:
       """
-      Executing jumpup:git:push
+      No configured push destination
       """
-    # TODO why this doesn't work?
-    # And the stdout should contain:
-    #   """
-    #   No configured push destination
-    #   """
