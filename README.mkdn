@@ -7,9 +7,9 @@ Jumpup is a gem that provides a set of tasks to automate all steps of a [synchro
 
 Because that's the way [we][helabs] like it!
 
-## Installing
+## Installation
 
-Add it to your Gemfile:
+Add the gem to the `development` section of your `Gemfile` and run `bundle install`:
 
 ```ruby
 group :development do
@@ -17,11 +17,26 @@ group :development do
 end
 ```
 
-After installing the gem is ready to be used and you will need to execute only one task in order to integrate your code safely:
+## Usage
+
+After installing the gem, you'll need to configure the set of tasks you'll want to run as part of your integration process before using it. The configuration is done by setting an array of Rake task names as the `INTEGRATION_TASKS` constant on your `lib/tasks/jumpup.rake`. For example:
+
+```ruby
+INTEGRATION_TASKS = %w(
+  jumpup:start
+  db:migrate
+  spec
+  jumpup:finish
+)
+```
+
+With that in place, you can execute a single task in order to integrate your code safely:
 
 ```
 rake integrate
 ```
+
+For more information, please have a look at the "[Integration Steps](#integration-steps)" section below.
 
 ## Dependencies
 
