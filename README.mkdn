@@ -83,7 +83,7 @@ Using this almost paranoid sequence of steps it will be hard to check in bad cod
 
 * Reckless programmer
 
-  So you don't have tests, nor specs but you still want to use the jumpup. You might get away with this customized lib/tasks/integration.rake:
+  So you don't have tests, nor specs but you still want to use the jumpup. You might get away with this customized `lib/tasks/jumpup.rake`:
 
   ```ruby
   INTEGRATION_TASKS = %w(
