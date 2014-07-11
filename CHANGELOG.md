@@ -1,11 +1,19 @@
 # Changelog
 
-## 0.0.6 (unreleased)
+## 0.0.7 (unreleased)
 
 ### features
-- Transfer coverage verification to simplecov
 
 ### improvements
+
+### bug fixes
+
+## 0.0.6 (July 11, 2014)
+
+### features
+
+### improvements
+- Transfer coverage verification to simplecov
 
 ### bug fixes
 
