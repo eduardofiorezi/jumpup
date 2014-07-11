@@ -80,43 +80,43 @@ Using this almost paranoid sequence of steps it will be hard to check in bad cod
 
 ### More examples
 
-* Reckless programmer
+#### Reckless programmer
 
-  Let's say your project don't have tests but you still want to use jumpup. You might get away with this `lib/tasks/jumpup.rake`:
+Let's say your project don't have tests but you still want to use jumpup. You might get away with this `lib/tasks/jumpup.rake`:
 
-  ```ruby
-  INTEGRATION_TASKS = %w(
-    jumpup:start
-    db:migrate
-    jumpup:finish
-  )
-  ```
+```ruby
+INTEGRATION_TASKS = %w(
+  jumpup:start
+  db:migrate
+  jumpup:finish
+)
+```
 
-  The fact that you can get away with this doesn't mean you should. Don't you think it's already time to grow up and become more professional about software development? I know you believe you have a great excuse to avoid writing those tests. Still it's just an excuse. Write tests and make a better world!
+The fact that you can get away with this doesn't mean you should. Don't you think it's already time to grow up and become more professional about software development? I know you believe you have a great excuse to avoid writing those tests. Still it's just an excuse. Write tests and make a better world!
 
-* Test conscious programmer
+#### Test conscious programmer
 
-  You haven't jumped on the [BDD][BDD] bandwagon yet. Instead, you write tests, which is good, but they don't cover all of your code yet, which is bad. We believe you will improve it and make sure your tests cover 100% of your code. In the meantime you might need to skip coverage checkings. Try this:
+You haven't jumped on the [BDD][BDD] bandwagon yet. Instead, you write tests, which is good, but they don't cover all of your code yet, which is bad. We believe you will improve it and make sure your tests cover 100% of your code. In the meantime you might need to skip coverage checkings. Try this:
 
-   ```ruby
-   INTEGRATION_TASKS = %w(
-     jumpup:start
-     db:migrate
-     test
-     jumpup:finish
-   )
-   ```
+```ruby
+INTEGRATION_TASKS = %w(
+  jumpup:start
+  db:migrate
+  test
+  jumpup:finish
+)
+```
 
-* Spec infected programmer
+#### Spec infected programmer
 
-  So you used to [TDD][TDD] all around but then someone told you that this is for gramma. The new wave has a name on it: [BDD][BDD]. So, of course, you now have specs covering 100% of your code and doesn't have any more tests. Great! Just change your test_helper.rb/spec_helper.rb with:
+So you used to [TDD][TDD] all around but then someone told you that this is for gramma. The new wave has a name on it: [BDD][BDD]. So, of course, you now have specs covering 100% of your code and doesn't have any more tests. Great! Just change your test_helper.rb/spec_helper.rb with:
 
-  ```ruby
-  require 'simplecov'
-  SimpleCov.start 'rails' do
-    minimum_coverage 100
-  end
-  ```
+```ruby
+require 'simplecov'
+SimpleCov.start 'rails' do
+  minimum_coverage 100
+end
+```
 
 ## Versioning
 
