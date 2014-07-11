@@ -9,5 +9,6 @@ Before do
   @aruba_timeout_seconds = 60 * 5
 end
 
-# Remove old generated projects
-system "rm -rf tmp/aruba"
+After do
+  system "rm -rf tmp/aruba"
+end
