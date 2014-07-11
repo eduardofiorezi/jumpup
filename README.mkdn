@@ -51,11 +51,6 @@ The integration process is composed of several steps that are explained ahead. I
 
   Remove temporary files.
 
-* task backup:local
-
-  Backup files locally. This is done before scm update to create a recovery point if you have problems during scm update. If a file merge creates undesirable effects on the software, you can recover from the backup file.
-  Backup file names have a timestamp. By default, the last 30 backups are kept. You may change this number as you'll see shortly. This task won't work on Windows because it uses [tar][]. So, if you're using Windows you'll have to write your own version of this task or just stop using Windows. We highly recommend the later.
-
 * task git:pull
 
   Update local files from your remote scm repository.
