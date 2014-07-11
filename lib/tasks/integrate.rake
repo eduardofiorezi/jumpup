@@ -2,30 +2,24 @@ require 'find'
 
 namespace :jumpup do
 
-  def p80(message)
-    puts "-"*80
-    puts message if message
-    yield if block_given?
-  end
-
   namespace :git do
     desc 'Check if project can be committed to the repository.'
     task :status_check do
       result = `git status`
       if result.include?('Untracked files:') || result.include?('unmerged:') || result.include?('modified:')
-        puts result
+        Jumpup::UI.say result
         exit
       end
     end
 
     desc 'Update files from repository.'
     task :pull do
-      puts `git pull --rebase 2>&1`
+      Jumpup::UI.say `git pull --rebase 2>&1`
     end
 
     desc 'Push project.'
     task :push do
-      puts `git push 2>&1`
+      Jumpup::UI.say `git push 2>&1`
     end
   end
 
@@ -46,7 +40,7 @@ end
 desc 'Integrate new code to repository'
 task :integrate do
   if !defined?(INTEGRATION_TASKS)
-    p80 %{
+    Jumpup::UI.header %{
 You should define INTEGRATION_TASKS constant. We recommend that you define it on lib/tasks/jumpup.rake file. The file doesn't exists. You should create it in your project.
 
 You'll probably want to add coverage/ to your .gitignore file.
@@ -66,7 +60,7 @@ INTEGRATION_TASKS = %w(
   end
 
   INTEGRATION_TASKS.each do |subtask|
-    p80("Executing #{subtask}...") do
+    Jumpup::UI.header("Executing #{subtask}...") do
       Rake::Task[subtask].invoke
     end
   end
