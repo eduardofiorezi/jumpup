@@ -20,12 +20,12 @@ namespace :jumpup do
 
     desc 'Update files from repository.'
     task :pull do
-      sh "git pull --rebase"
+      puts `git pull --rebase 2>&1`
     end
 
     desc 'Push project.'
     task :push do
-      sh "git push"
+      puts `git push 2>&1`
     end
   end
 
