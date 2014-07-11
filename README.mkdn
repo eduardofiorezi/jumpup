@@ -68,10 +68,6 @@ The integration process is composed of several steps that are explained ahead. I
 
   Set the rake task your test/spec suite needs to run. Use a command that generate the coverage files.
 
-* coverage_verify
-
-  Check if tests/specs cover 100% of the application code.
-
 * git:push
 
   Push your changes. If any of the previous tasks break, because one test failed, for instance, the script won't push. Actually this task runs only if every checking done before work well.
@@ -107,15 +103,14 @@ Using this almost paranoid sequence of steps it will be hard to check in bad cod
 
 * Spec infected programmer
 
-  So you used to [TDD][TDD] all around but then someone told you that this is for gramma. The new wave has a name on it: [BDD][BDD]. So, of course, you now have specs covering 100% of your code and doesn't have any more tests. Great! Just do it:
+  So you used to [TDD][TDD] all around but then someone told you that this is for gramma. The new wave has a name on it: [BDD][BDD]. So, of course, you now have specs covering 100% of your code and doesn't have any more tests. Great! Just change you test_helper.rb/spec_helper.rb with:
 
-        INTEGRATION_TASKS = %w(
-          jumpup:start
-          db:migrate
-          spec
-          jumpup:coverage_verify
-          jumpup:finish
-        )
+  ```ruby
+  require 'simplecov'
+  SimpleCov.start 'rails' do
+    minimum_coverage 100
+  end
+  ```
 
 ## Versioning
 
