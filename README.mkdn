@@ -98,7 +98,7 @@ Using this almost paranoid sequence of steps it will be hard to check in bad cod
 
 * Spec infected programmer
 
-  So you used to [TDD][TDD] all around but then someone told you that this is for gramma. The new wave has a name on it: [BDD][BDD]. So, of course, you now have specs covering 100% of your code and doesn't have any more tests. Great! Just change you test_helper.rb/spec_helper.rb with:
+  So you used to [TDD][TDD] all around but then someone told you that this is for gramma. The new wave has a name on it: [BDD][BDD]. So, of course, you now have specs covering 100% of your code and doesn't have any more tests. Great! Just change your test_helper.rb/spec_helper.rb with:
 
   ```ruby
   require 'simplecov'
