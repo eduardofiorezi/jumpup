@@ -47,10 +47,10 @@ Our integration process is composed of several rake tasks that are explained ahe
 
 | Rake Task | Description |
 | --------- | ----------- |
-| `git:status_check` | Check if all local files are under control of your scm. |
+| `git:status_check` | Check if all local files have been commited to the local git repository. |
 | `log:clear`        | Remove log files. |
 | `tmp:clear`        | Remove temporary files. |
-| `git:pull`         | Update local files from your remote scm repository. |
+| `git:pull`         | Update local files from the remote git repository. |
 | `db:migrate`       | Execute any new database migration created by other team members since the last integration. |
 | `test` or `spec`   | Set the rake task your test/spec suite needs to run. Use a command that generate the coverage files. |
 | `git:push`         | Push your changes. If any of the previous tasks break, because one test failed, for instance, the script won't push. Actually this task runs only if every checking done before work well. |
