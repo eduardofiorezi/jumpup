@@ -43,35 +43,17 @@ The "coverage" variable is set to "on" by the integration process. When running 
 
 ## Integration Steps
 
-The integration process is composed of several steps that are explained ahead. It's possible to skip one or more steps and add other steps of your own. This will be demonstrated shortly. The complete set of steps are:
+Our integration process is composed of several rake tasks that are explained ahead. It's possible to skip one or more steps and add other steps of your own. This will be demonstrated shortly and this is the complete set of tasks we normally use:
 
-1. task git:status_check
-
-  Check if all local files are under control of your scm.
-
-* task log:clear
-
-  Remove log files.
-
-* task tmp:clear
-
-  Remove temporary files.
-
-* task git:pull
-
-  Update local files from your remote scm repository.
-
-* task db:migrate
-
-  Execute any new database migration created by other team members since the last integration.
-
-* Your test/spec suite
-
-  Set the rake task your test/spec suite needs to run. Use a command that generate the coverage files.
-
-* git:push
-
-  Push your changes. If any of the previous tasks break, because one test failed, for instance, the script won't push. Actually this task runs only if every checking done before work well.
+| Rake Task | Description |
+| --------- | ----------- |
+| `git:status_check` | Check if all local files are under control of your scm. |
+| `log:clear`        | Remove log files. |
+| `tmp:clear`        | Remove temporary files. |
+| `git:pull`         | Update local files from your remote scm repository. |
+| `db:migrate`       | Execute any new database migration created by other team members since the last integration. |
+| `test` or `spec`   | Set the rake task your test/spec suite needs to run. Use a command that generate the coverage files. |
+| `git:push`         | Push your changes. If any of the previous tasks break, because one test failed, for instance, the script won't push. Actually this task runs only if every checking done before work well. |
 
 Using this almost paranoid sequence of steps it will be hard to check in bad code in your repository, which is good, very good. The idea is that you should treat your repository as a sacred place, where only good code should ever enter.
 
