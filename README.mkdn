@@ -41,7 +41,7 @@ For more information, please have a look at the "[Integration Steps](#integratio
 ## Dependencies
 
 * Git
-* [Rcov][rc](Ruby 1.8) or [Simplecov][sc](Ruby 1.9) (optional)
+* [Rcov][rc] (Ruby 1.8) or [Simplecov][sc] (Ruby 1.9+) (optional)
 
 ## [ProTip] Using Simplecov
 
