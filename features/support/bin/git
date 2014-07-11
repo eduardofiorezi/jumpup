@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+require "thor"
+
+class Git < Thor
+  desc "staus", "stub of git status"
+  def status(app)
+    puts <<-HEREDOC
+    On branch master
+    Your branch is up-to-date with 'origin/master'.
+
+    nothing to commit, working directory clean
+    HEREDOC
+  end
+end
+
+Git.start
