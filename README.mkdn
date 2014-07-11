@@ -9,13 +9,17 @@ Jumpup is a [Ruby on Rails][ror] gem that provides a set of tasks to automate al
 
 Add it to your Gemfile:
 
-    group :development do
-      gem 'jumpup'
-    end
+```ruby
+group :development do
+  gem 'jumpup'
+end
+```
 
 After installing the gem is ready to be used and you will need to execute only one task in order to integrate your code safely:
 
-    rake integrate
+```
+rake integrate
+```
 
 ## Dependencies
 
@@ -28,10 +32,12 @@ Using simplecov on your test suite will make your tests to run slower. You can f
 
 spec_helper.rb or test_helper.rb
 
-    if ENV['coverage'] == 'on'
-      require 'simplecov'
-      SimpleCov.start 'rails'
-    end
+```ruby
+if ENV['coverage'] == 'on'
+  require 'simplecov'
+  SimpleCov.start 'rails'
+end
+```
 
 The "coverage" variable is set to "on" by the integration process. When running tests/specs while you're developing, simplecov doesn't run, unless you set "coverage" environment variable by hand.
 
@@ -75,11 +81,13 @@ Using this almost paranoid sequence of steps it will be hard to check in bad cod
 
   So you don't have tests, nor specs but you still want to use the jumpup. You might get away with this customized lib/tasks/integration.rake:
 
-        INTEGRATION_TASKS = %w(
-          jumpup:start
-          db:migrate
-          jumpup:finish
-        )
+  ```ruby
+  INTEGRATION_TASKS = %w(
+    jumpup:start
+    db:migrate
+    jumpup:finish
+  )
+  ```
 
   The fact that you can get away with this doesn't mean you should. Don't you think it's already time to grow up and become more professional about software development? I know you believe you have a great excuse to avoid writing those tests or specs. Still it's just an excuse. Write tests or write specs and make a better world!
 
@@ -87,12 +95,14 @@ Using this almost paranoid sequence of steps it will be hard to check in bad cod
 
    You haven't jumped on the [BDD][BDD] bandwagon yet. Instead, you write tests, which is good, but they don't cover all of your code yet, which is bad. We believe you will improve it and make sure your tests cover 100% of your code. In the meantime you might need to skip coverage checkings. Oh, you also don't use [Selenium][sor]. Shame on you! Try this:
 
-        INTEGRATION_TASKS = %w(
-          jumpup:start
-          db:migrate
-          test
-          jumpup:finish
-        )
+   ```ruby
+   INTEGRATION_TASKS = %w(
+     jumpup:start
+     db:migrate
+     test
+     jumpup:finish
+   )
+   ```
 
 * Spec infected programmer
 
