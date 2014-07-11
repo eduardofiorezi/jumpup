@@ -1,11 +1,11 @@
 # Jumpup
 [![RubyGems][gem_version_badge]][ruby_gems]
 
-## What
-
 Jumpup is a gem that provides a set of tasks to automate all steps of a [synchronous continuous integration][sci] process for [Ruby on Rails][ror] apps, that is, [continuous integration][ci] without a server such as [Travis][travis].
 
-Why? Because that's the way [we][helabs] like it!
+## Why?
+
+Because that's the way [we][helabs] like it!
 
 ## Installing
 
