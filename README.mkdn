@@ -96,7 +96,7 @@ Using this almost paranoid sequence of steps it will be hard to check in bad cod
 
 * Test conscious programmer
 
-   You haven't jumped on the [BDD][BDD] bandwagon yet. Instead, you write tests, which is good, but they don't cover all of your code yet, which is bad. We believe you will improve it and make sure your tests cover 100% of your code. In the meantime you might need to skip coverage checkings. Oh, you also don't use [Selenium][sor]. Shame on you! Try this:
+  You haven't jumped on the [BDD][BDD] bandwagon yet. Instead, you write tests, which is good, but they don't cover all of your code yet, which is bad. We believe you will improve it and make sure your tests cover 100% of your code. In the meantime you might need to skip coverage checkings. Try this:
 
    ```ruby
    INTEGRATION_TASKS = %w(
@@ -176,7 +176,6 @@ This gem was created and is maintained by [HE:labs](https://github.com/Helabs).
 [vt]:    http://www.improveit.com.br/vinicius
 [rc]:    http://eigenclass.org/hiki.rb?rcov
 [sc]:    https://github.com/colszowka/simplecov
-[sor]:  http://selenium-on-rails.openqa.org
 [rs]:    http://rspec.info
 [ror]:  http://www.rubyonrails.org
 [sci]:  http://jamesshore.com/Blog/Why%20I%20Dont%20Like%20CruiseControl.html
