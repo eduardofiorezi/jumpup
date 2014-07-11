@@ -50,22 +50,21 @@ For more information, please have a look at the "[Integration Steps](#integratio
 
 ## [ProTip] Using Simplecov
 
-Using simplecov on your test suite will make your tests to run slower. You can fix it using an environment variable called "coverage" on test_helper.rb/spec_helper.rb to turn on/off the simplecov. See below:
-
-spec_helper.rb or test_helper.rb
+Using Simplecov on your test suite will make your tests run slower. You can fix it using an environment variable called `coverage` on your test / spec helper files to enable Simplecov when needed like:
 
 ```ruby
+# On your spec_helper.rb / test_helper.rb
 if ENV['coverage'] == 'on'
   require 'simplecov'
   SimpleCov.start 'rails'
 end
 ```
 
-The "coverage" variable is set to "on" by the integration process. When running tests/specs while you're developing, simplecov doesn't run, unless you set "coverage" environment variable by hand.
+The `coverage` variable is set to "on" automatically by the integration process. When running tests while you're developing, Simplecov will not run unless you set the `coverage` environment variable yourself.
 
 ## Integration Steps
 
-Our integration process is composed of several rake tasks that are explained ahead. It's possible to skip one or more steps and add other steps of your own. This will be demonstrated shortly and this is the complete set of tasks we normally use:
+The integration process is composed of several Rake tasks that are explained below. It's possible to skip one or more steps and add other steps of your own. The complete set of tasks we normally use are:
 
 | Rake Task | Description |
 | --------- | ----------- |
@@ -83,7 +82,7 @@ Using this almost paranoid sequence of steps it will be hard to check in bad cod
 
 * Reckless programmer
 
-  So you don't have tests, nor specs but you still want to use the jumpup. You might get away with this customized `lib/tasks/jumpup.rake`:
+  Let's say your project don't have tests but you still want to use jumpup. You might get away with this `lib/tasks/jumpup.rake`:
 
   ```ruby
   INTEGRATION_TASKS = %w(
@@ -93,7 +92,7 @@ Using this almost paranoid sequence of steps it will be hard to check in bad cod
   )
   ```
 
-  The fact that you can get away with this doesn't mean you should. Don't you think it's already time to grow up and become more professional about software development? I know you believe you have a great excuse to avoid writing those tests or specs. Still it's just an excuse. Write tests or write specs and make a better world!
+  The fact that you can get away with this doesn't mean you should. Don't you think it's already time to grow up and become more professional about software development? I know you believe you have a great excuse to avoid writing those tests. Still it's just an excuse. Write tests and make a better world!
 
 * Test conscious programmer
 
