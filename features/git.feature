@@ -1,4 +1,3 @@
-@announce
 Feature: Git
   Scenario: jumpup:git:status_check task
     Given a file named "Rakefile" with:
