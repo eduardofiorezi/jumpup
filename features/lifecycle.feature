@@ -61,3 +61,16 @@ Feature: Lifecycle tasks
     Then the stdout should not contain "Clearing tmp files"
     Then the stdout should not contain "No remote repository specified"
 
+  Scenario: running jumpup:finish task does a git push
+    Given a file named "Rakefile" with:
+      """
+      require "jumpup"
+
+      INTEGRATION_TASKS = %w(
+        jumpup:finish
+      )
+      """
+    # we need to initialize an empty git repo, otherwise the jumpup .git will be taken
+    When I run `git init -q`
+    And I run `rake integrate`
+    Then the stdout should contain "No configured push destination"
