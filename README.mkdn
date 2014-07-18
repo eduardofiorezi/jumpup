@@ -102,7 +102,7 @@ You haven't jumped on the [BDD][BDD] bandwagon yet. Instead, you write tests, wh
 INTEGRATION_TASKS = %w(
   jumpup:start
   db:migrate
-  test
+  spec
   jumpup:finish
 )
 ```
