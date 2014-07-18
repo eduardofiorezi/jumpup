@@ -1,109 +1,122 @@
 # Jumpup
 [![RubyGems][gem_version_badge]][ruby_gems]
 
-## What
+Jumpup is a gem that provides a set of tasks to automate all steps of a [synchronous continuous integration][sci] process for [Ruby on Rails][ror] apps, that is, [continuous integration][ci] without a server such as [Travis][travis].
 
-Jumpup is a [Ruby on Rails][ror] gem that provides a set of tasks to automate all steps of a [synchronous continuous integration][sci] process, that is, [continuous integration][ci] without a server such as [Travis][travis]. Why? Because that's the way we like it!
+## Why?
 
-## Installing
+Because that's the way [we][helabs] like it!
 
-Add it to your Gemfile:
+## Installation
 
-    group :development do
-      gem 'jumpup'
-    end
+Add the gem to the `development` section of your `Gemfile` and run `bundle install`:
 
-After installing the gem is ready to be used and you will need to execute only one task in order to integrate your code safely:
+```ruby
+group :development do
+  gem 'jumpup'
+end
+```
 
-    rake integrate
+## Usage
+
+After installing the gem, you'll need to configure the set of tasks you'll want to run as part of your integration process before using it. The configuration is done by setting an array of Rake task names as the `INTEGRATION_TASKS` constant on your `lib/tasks/jumpup.rake`. For example:
+
+```ruby
+INTEGRATION_TASKS = %w(
+  jumpup:start
+  db:migrate
+  spec
+  jumpup:finish
+)
+```
+
+With that in place, you can execute a single task in order to integrate your code safely:
+
+```
+rake integrate
+```
+
+For more information, please have a look at the "[Integration Steps](#integration-steps)" section below.
+
+## Plugins
+
+* [jumpup-heroku][jumpup-heroku]
+* [jumpup-hipchat][jumpup-hipchat]
 
 ## Dependencies
 
 * Git
-* [Rcov][rc](Ruby 1.8) or [Simplecov][sc](Ruby 1.9) (optional)
+* [Rcov][rc] (Ruby 1.8) or [Simplecov][sc] (Ruby 1.9+) (optional)
 
 ## [ProTip] Using Simplecov
 
-Using simplecov on your test suite will make your tests to run slower. You can fix it using an environment variable called "coverage" on test_helper.rb/spec_helper.rb to turn on/off the simplecov. See below:
+Using Simplecov on your test suite will make your tests run slower. You can fix it using an environment variable called `coverage` on your test / spec helper files to enable Simplecov when needed like:
 
-spec_helper.rb or test_helper.rb
+```ruby
+# On your spec_helper.rb / test_helper.rb
+if ENV['coverage'] == 'on'
+  require 'simplecov'
+  SimpleCov.start 'rails'
+end
+```
 
-    if ENV['coverage'] == 'on'
-      require 'simplecov'
-      SimpleCov.start 'rails'
-    end
-
-The "coverage" variable is set to "on" by the integration process. When running tests/specs while you're developing, simplecov doesn't run, unless you set "coverage" environment variable by hand.
+The `coverage` variable is set to "on" automatically by the integration process. When running tests while you're developing, Simplecov will not run unless you set the `coverage` environment variable yourself.
 
 ## Integration Steps
 
-The integration process is composed of several steps that are explained ahead. It's possible to skip one or more steps and add other steps of your own. This will be demonstrated shortly. The complete set of steps are:
+The integration process is composed of several Rake tasks that are explained below. It's possible to skip one or more steps and add other steps of your own. The complete set of tasks we normally use are:
 
-1. task git:status_check
-
-  Check if all local files are under control of your scm.
-
-* task log:clear
-
-  Remove log files.
-
-* task tmp:clear
-
-  Remove temporary files.
-
-* task git:pull
-
-  Update local files from your remote scm repository.
-
-* task db:migrate
-
-  Execute any new database migration created by other team members since the last integration.
-
-* Your test/spec suite
-
-  Set the rake task your test/spec suite needs to run. Use a command that generate the coverage files.
-
-* git:push
-
-  Push your changes. If any of the previous tasks break, because one test failed, for instance, the script won't push. Actually this task runs only if every checking done before work well.
+| Rake Task | Description |
+| --------- | ----------- |
+| `git:status_check` | Check if all local files have been commited to the local git repository. |
+| `log:clear`        | Remove log files. |
+| `tmp:clear`        | Remove temporary files. |
+| `git:pull`         | Update local files from the remote git repository. |
+| `db:migrate`       | Execute any new database migration created by other team members since the last integration. |
+| `test` or `spec`   | Set the rake task your test/spec suite needs to run. Use a command that generate the coverage files. |
+| `git:push`         | Push your changes. If any of the previous tasks break, because one test failed, for instance, the script won't push. Actually this task runs only if every checking done before work well. |
 
 Using this almost paranoid sequence of steps it will be hard to check in bad code in your repository, which is good, very good. The idea is that you should treat your repository as a sacred place, where only good code should ever enter.
 
 ### More examples
 
-* Reckless programmer
+#### Reckless programmer
 
-  So you don't have tests, nor specs but you still want to use the jumpup. You might get away with this customized lib/tasks/integration.rake:
+Let's say your project don't have tests but you still want to use jumpup. You might get away with this `lib/tasks/jumpup.rake`:
 
-        INTEGRATION_TASKS = %w(
-          jumpup:start
-          db:migrate
-          jumpup:finish
-        )
+```ruby
+INTEGRATION_TASKS = %w(
+  jumpup:start
+  db:migrate
+  jumpup:finish
+)
+```
 
-  The fact that you can get away with this doesn't mean you should. Don't you think it's already time to grow up and become more professional about software development? I know you believe you have a great excuse to avoid writing those tests or specs. Still it's just an excuse. Write tests or write specs and make a better world!
+The fact that you can get away with this doesn't mean you should. Don't you think it's already time to grow up and become more professional about software development? I know you believe you have a great excuse to avoid writing those tests. Still it's just an excuse. Write tests and make a better world!
 
-* Test conscious programmer
+#### Test conscious programmer
 
-   You haven't jumped on the [BDD][BDD] bandwagon yet. Instead, you write tests, which is good, but they don't cover all of your code yet, which is bad. We believe you will improve it and make sure your tests cover 100% of your code. In the meantime you might need to skip coverage checkings. Oh, you also don't use [Selenium][sor]. Shame on you! Try this:
+You haven't jumped on the [BDD][BDD] bandwagon yet. Instead, you write tests, which is good, but they don't cover all of your code yet, which is bad. We believe you will improve it and make sure your tests cover 100% of your code. In the meantime you might need to skip coverage checkings. Try this:
 
-        INTEGRATION_TASKS = %w(
-          jumpup:start
-          db:migrate
-          test
-          jumpup:finish
-        )
+```ruby
+INTEGRATION_TASKS = %w(
+  jumpup:start
+  db:migrate
+  spec
+  jumpup:finish
+)
+```
 
-* Spec infected programmer
+#### Spec infected programmer
 
-  So you used to [TDD][TDD] all around but then someone told you that this is for gramma. The new wave has a name on it: [BDD][BDD]. So, of course, you now have specs covering 100% of your code and doesn't have any more tests. Great! Just change your test_helper.rb/spec_helper.rb with:
+So you used to [TDD][TDD] all around but then someone told you that this is for gramma. The new wave has a name on it: [BDD][BDD]. So, of course, you now have specs covering 100% of your code and doesn't have any more tests. Great! Just change your test_helper.rb/spec_helper.rb with:
 
-  ```ruby
-  require 'simplecov'
-  SimpleCov.start 'rails' do
-    minimum_coverage 100
-  end
-  ```
+```ruby
+require 'simplecov'
+SimpleCov.start 'rails' do
+  minimum_coverage 100
+end
+```
 
 ## Versioning
 
@@ -158,25 +171,20 @@ This gem was created and is maintained by [HE:labs](https://github.com/Helabs).
 
 [gem_version_badge]: https://badge.fury.io/rb/jumpup.png
 [ruby_gems]: http://rubygems.org/gems/jumpup
-[piston]:  http://piston.rubyforge.org/
 [mt]:    https://github.com/tapajos
 [sm]:   https://github.com/mergulhao
 [vt]:    http://www.improveit.com.br/vinicius
-[f]:    http://rubyforge.org/forum/?group_id=4662
-[s]:    http://subversion.tigris.org
-[git]:  http://git.or.cz/
 [rc]:    http://eigenclass.org/hiki.rb?rcov
 [sc]:    https://github.com/colszowka/simplecov
-[sor]:  http://selenium-on-rails.openqa.org
 [rs]:    http://rspec.info
-[rz]:    http://rubyzip.sourceforge.net/
 [ror]:  http://www.rubyonrails.org
 [sci]:  http://jamesshore.com/Blog/Why%20I%20Dont%20Like%20CruiseControl.html
-[co]:    http://www.improveit.com.br/en/contact
 [mit]:  http://www.opensource.org/licenses/mit-license.php
 [ci]:   http://martinfowler.com/articles/continuousIntegration.html
 [travis]: http://travis-ci.org
-[tar]:  http://en.wikipedia.org/wiki/Tar_%28file_format%29
 [BDD]:  http://en.wikipedia.org/wiki/Behavior_driven_development
 [TDD]:  http://en.wikipedia.org/wiki/Test-driven_development
 [ii]:   http://www.improveit.com.br
+[helabs]: http://helabs.com.br/en/
+[jumpup-heroku]: https://github.com/Helabs/jumpup-heroku
+[jumpup-hipchat]: https://github.com/Helabs/jumpup-hipchat
