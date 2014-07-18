@@ -5,6 +5,7 @@
 ### features
 
 ### improvements
+- Add tests with rspec and aruba
 
 ### bug fixes
 
