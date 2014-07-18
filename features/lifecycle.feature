@@ -1,4 +1,5 @@
 Feature: Lifecycle tasks
+  @announce
   Scenario: running jumpup:start task without dirty files
     Given a file named "Rakefile" with:
       """
