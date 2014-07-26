@@ -10,11 +10,14 @@ module Jumpup
     A sample content look like this:
 
     INTEGRATION_TASKS = %w(
+      jumpup:integration:check
+      jumpup:integration:lock
       jumpup:start
       jumpup:bundle_install
       db:migrate
       spec
       jumpup:finish
+      jumpup:integration:unlock
     )
 
     }
@@ -36,7 +39,7 @@ module Jumpup
     private
       def invoke_tasks
         INTEGRATION_TASKS.each do |subtask|
-          Jumpup::UI.header("Executing #{subtask}...") do
+          Jumpup::UI.header("--> Executing #{subtask}...".white) do
             Rake::Task[subtask].invoke
           end
         end

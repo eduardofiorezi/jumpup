@@ -17,6 +17,23 @@ namespace :jumpup do
     end
   end
 
+  namespace :integration do
+    desc 'Checks if there\'s someone integrating.'
+    task :check do
+      Jumpup::GitCommand.check_integration
+    end
+
+    desc 'Lock integration.'
+    task :lock do
+      Jumpup::GitCommand.lock_integration
+    end
+
+    desc 'Unlock integration.'
+    task :unlock do
+      Jumpup::GitCommand.unlock_integration
+    end
+  end
+
   task :start => ["git:status_check", "log:clear", "tmp:clear", "git:pull"] do
     ENV['coverage'] = 'on'
   end
