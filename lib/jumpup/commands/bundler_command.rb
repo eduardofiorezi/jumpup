@@ -3,7 +3,7 @@ module Jumpup::BundlerCommand
 
     def install_with_clean_env
       Bundler.with_clean_env do
-        sh 'bundle install --quiet'
+        Jumpup::UI.say `bundle install --quiet`
       end
     end
 

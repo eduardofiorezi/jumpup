@@ -1,10 +1,12 @@
+require 'colorize'
+
 module Jumpup
   module UI
 
     class << self
 
       def header(message)
-        puts "-"*80
+        puts ("-"*80).white
         puts message if message
         yield if block_given?
       end
