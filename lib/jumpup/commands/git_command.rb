@@ -19,6 +19,7 @@ module Jumpup::GitCommand
 
     def check_integration
       Jumpup::UI.say "  --> Checking if there's someone integrating...".yellow
+      Jumpup::UI.say `git tag -d integrating`
       Jumpup::UI.say `git fetch --tags`
 
       tags = `git tag`.strip.split("\n")
