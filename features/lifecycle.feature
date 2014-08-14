@@ -21,7 +21,7 @@ Feature: Lifecycle tasks
         jumpup:start
       )
       """
-    # we need to initialize an empty git repo, otherwise the jumpup .git will be taken
+    # TODO Use "When I setup a git repo" instead
     When I run `git init -q`
     And I run `git add .`
     And I run `git commit -m "Initial commit" -q`
@@ -52,8 +52,7 @@ Feature: Lifecycle tasks
         jumpup:start
       )
       """
-    # we need to initialize an empty git repo, otherwise the jumpup .git will be taken
-    When I run `git init -q`
+    When I setup a git repo
     And I run `rake integrate`
     Then the stdout should contain "On branch master"
     Then the stdout should not contain "Clearing log files"
@@ -69,7 +68,7 @@ Feature: Lifecycle tasks
         jumpup:finish
       )
       """
-    # we need to initialize an empty git repo, otherwise the jumpup .git will be taken
+    # TODO Use "When I setup a git repo" instead
     When I run `git init -q`
     And I run `rake integrate`
     Then the stdout should contain "No configured push destination"
