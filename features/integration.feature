@@ -8,8 +8,7 @@ Feature: Integration
         jumpup:integration:check
       )
       """
-    # we need to initialize an empty git repo, otherwise the jumpup .git will be taken
-    When I run `git init -q`
+    When I setup a git repo
     And I run `rake integrate`
     Then the stdout should contain "--> Checking if there's someone integrating..."
 		Then the stdout should contain "--> No, go ahead!"
@@ -22,8 +21,7 @@ Feature: Integration
         jumpup:integration:check
       )
       """
-    # we need to initialize an empty git repo, otherwise the jumpup .git will be taken
-    When I run `git init -q`
+    When I setup a git repo
 		And I run `git commit --allow-empty -am 'first commit'`
 		And I run `git tag -a integrating -m ''`
     And I run `rake integrate`
@@ -38,10 +36,8 @@ Feature: Integration
         jumpup:integration:lock
       )
       """
-    # we need to initialize an empty git repo, otherwise the jumpup .git will be taken
-    When I run `git init -q`
+    When I setup a git repo
 		And I run `git commit --allow-empty -am 'first commit'`
-		And I run `git remote add origin .`
     And I run `rake integrate`
     Then the stdout should contain "--> Locking integration..."
 		Then the stdout should contain "--> OK!"
@@ -54,10 +50,8 @@ Feature: Integration
         jumpup:integration:unlock
       )
       """
-    # we need to initialize an empty git repo, otherwise the jumpup .git will be taken
-    When I run `git init -q`
+    When I setup a git repo
 		And I run `git commit --allow-empty -am 'first commit'`
-		And I run `git remote add origin .`
 		And I run `git tag -a -f integrating -m "Integration started"`
     And I run `rake integrate`
     Then the stdout should contain "--> Unlocking integration..."

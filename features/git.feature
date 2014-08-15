@@ -8,8 +8,7 @@ Feature: Git
         jumpup:git:status_check
       )
       """
-    # we need to initialize an empty git repo, otherwise the jumpup .git will be taken
-    When I run `git init -q`
+    When I setup a git repo
     And I run `rake integrate`
     Then the stdout should contain:
       """
@@ -24,8 +23,7 @@ Feature: Git
         jumpup:git:status_check
       )
       """
-    # we need to initialize an empty git repo, otherwise the jumpup .git will be taken
-    When I run `git init -q`
+    When I setup a git repo
     And I run `git add .`
     And I run `git commit -m "Initial commit" -q`
     And I run `rake integrate`
@@ -43,7 +41,7 @@ Feature: Git
         jumpup:git:pull
       )
       """
-    # we need to initialize an empty git repo, otherwise the jumpup .git will be taken
+    # TODO Use "When I setup a git repo" instead
     When I run `git init -q`
     And I run `rake integrate`
     Then the stdout should contain:
@@ -60,7 +58,7 @@ Feature: Git
         jumpup:git:push
       )
       """
-    # we need to initialize an empty git repo, otherwise the jumpup .git will be taken
+    # TODO Use "When I setup a git repo" instead
     When I run `git init -q`
     And I run `rake integrate`
     Then the stdout should contain:

@@ -7,4 +7,5 @@ end
 
 After do
   system "rm -rf tmp/aruba"
+  system "rm -rf /tmp/jumpup-git-repo"
 end
