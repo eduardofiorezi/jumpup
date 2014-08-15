@@ -24,6 +24,7 @@ Feature: Integration
     When I setup a git repo
     And I run `git commit --allow-empty -am 'first commit'`
     And I run `git tag -a integrating -m ''`
+    And I run `git push -f origin integrating`
     And I run `rake integrate`
     Then the stdout should contain "--> Checking if there's someone integrating..."
     Then the stdout should contain "--> Project is locked to you"
