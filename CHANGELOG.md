@@ -9,6 +9,7 @@
 - Add tests with rspec and aruba
 
 ### bug fixes
+- Delete integrating local tag before fetching remote tags
 
 ## 0.0.6 (July 11, 2014)
 
