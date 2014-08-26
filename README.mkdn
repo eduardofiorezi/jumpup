@@ -69,12 +69,12 @@ The integration process is composed of several Rake tasks that are explained bel
 
 | Rake Task | Description |
 | --------- | ----------- |
+| `jumpup:integration:check`   | Check if other user is already integrating, to avoid reject message from git after runing all tests. |
+| `jumpup:integration:lock`    | Lock the integration to current user. |
 | `git:status_check`           | Check if all local files have been commited to the local git repository. |
 | `log:clear`                  | Remove log files. |
 | `tmp:clear`                  | Remove temporary files. |
 | `git:pull`                   | Update local files from the remote git repository. |
-| `jumpup:integration:check`   | Check if other user is already integrating, to avoid reject message from git after runing all tests. |
-| `jumpup:integration:lock`    | Lock the integration to current user. |
 | `jumpup:start`               | Run all the previous tasks on this order |
 | `db:migrate`                 | Execute any new database migration created by other team members since the last integration. |
 | `test` or `spec`             | Set the rake task your test/spec suite needs to run. Use a command that generate the coverage files. |

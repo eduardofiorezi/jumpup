@@ -34,7 +34,7 @@ namespace :jumpup do
     end
   end
 
-  task :start => ["git:status_check", "log:clear", "tmp:clear", "git:pull", "integration:check", "integration:lock"] do
+  task :start => ["integration:check", "integration:lock", "git:status_check", "log:clear", "tmp:clear", "git:pull"] do
     ENV['coverage'] = 'on'
   end
   task :finish => ["git:push", "integration:unlock"]
