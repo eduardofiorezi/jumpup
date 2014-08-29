@@ -44,7 +44,7 @@ Feature: Git
     # TODO Use "When I setup a git repo" instead
     When I run `git init -q`
     And I run `rake integrate`
-    Then the stdout should contain:
+    Then the stderr should contain:
       """
       No remote repository specified
       """
@@ -61,7 +61,7 @@ Feature: Git
     # TODO Use "When I setup a git repo" instead
     When I run `git init -q`
     And I run `rake integrate`
-    Then the stdout should contain:
+    Then the stderr should contain:
       """
       No configured push destination
       """
