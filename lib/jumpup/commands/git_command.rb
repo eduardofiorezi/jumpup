@@ -1,4 +1,6 @@
 module Jumpup::GitCommand
+  extend Rake::DSL
+
   class << self
 
     def status_check
@@ -10,11 +12,11 @@ module Jumpup::GitCommand
     end
 
     def pull
-      Jumpup::UI.say `git pull --rebase 2>&1`
+      sh "git pull --rebase"
     end
 
     def push
-      Jumpup::UI.say `git push 2>&1`
+      sh "git push"
     end
 
     def check_integration
