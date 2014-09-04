@@ -34,10 +34,10 @@ namespace :jumpup do
     end
   end
 
-  task :start => ["git:status_check", "log:clear", "tmp:clear", "git:pull"] do
+  task :start => ["integration:check", "integration:lock", "git:status_check", "log:clear", "tmp:clear", "git:pull"] do
     ENV['coverage'] = 'on'
   end
-  task :finish => ["git:push"]
+  task :finish => ["git:push", "integration:unlock"]
 
   desc 'Run bundle install'
   task :bundle_install do

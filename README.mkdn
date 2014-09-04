@@ -24,13 +24,10 @@ After installing the gem, you'll need to configure the set of tasks you'll want 
 
 ```ruby
 INTEGRATION_TASKS = %w(
-  jumpup:integration:check
-  jumpup:integration:lock
   jumpup:start
   db:migrate
   spec
   jumpup:finish
-  jumpup:integration:unlock
 )
 ```
 
@@ -78,11 +75,12 @@ The integration process is composed of several Rake tasks that are explained bel
 | `log:clear`                  | Remove log files. |
 | `tmp:clear`                  | Remove temporary files. |
 | `git:pull`                   | Update local files from the remote git repository. |
+| `jumpup:start`               | Run all the previous tasks on this order |
 | `db:migrate`                 | Execute any new database migration created by other team members since the last integration. |
 | `test` or `spec`             | Set the rake task your test/spec suite needs to run. Use a command that generate the coverage files. |
-| `git:push`                   | Push your changes. If any of the previous tasks break, because one test failed, for instance, the script. |
+| `git:push`                   | Push your changes. If any of the previous tasks break, because one test failed, for instance, the script won't push. Actually this task runs only if every checking done before work well. |
 | `jumpup:integration:unlock`  | Unlock the integration to current user. |
-won't push. Actually this task runs only if every checking done before work well. |
+| `jumpup:finish`              | Run tasks: `git:push` and `jumpup:integration:unlock` |
 
 Using this almost paranoid sequence of steps it will be hard to check in bad code in your repository, which is good, very good. The idea is that you should treat your repository as a sacred place, where only good code should ever enter.
 
