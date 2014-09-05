@@ -12,17 +12,17 @@ module Jumpup::GitCommand
     end
 
     def pull
-      sh "git pull --rebase"
+      sh "git pull --rebase --quiet"
     end
 
     def push
-      sh "git push"
+      sh "git push --quiet"
     end
 
     def check_integration
       Jumpup::UI.say "  --> Checking if there's someone integrating...".yellow
       Jumpup::UI.say `git tag -d integrating`
-      Jumpup::UI.say `git fetch --tags`
+      Jumpup::UI.say `git fetch --tags --quiet`
 
       tags = `git tag`.strip.split("\n")
       if tags.include?('integrating')
@@ -42,7 +42,7 @@ module Jumpup::GitCommand
     def lock_integration
       Jumpup::UI.say "  --> Locking integration...".yellow
       Jumpup::UI.say `git tag -a -f integrating -m "Integration started at #{Time.now.strftime("%d/%m/%Y %T %Z")}"`
-      Jumpup::UI.say `git push -f origin integrating`
+      Jumpup::UI.say `git push -f origin integrating --quiet`
       Jumpup::UI.say "  --> OK!".green
     end
 
