@@ -1,6 +1,6 @@
-RSpec.shared_examples "capture stdout" do
+RSpec.shared_examples 'capture stdout' do
   before do
-    require "stringio"
+    require 'stringio'
     $stdout = StringIO.new
     @output = $stdout
   end

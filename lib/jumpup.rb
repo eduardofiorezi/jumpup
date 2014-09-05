@@ -1,7 +1,6 @@
 
 module Jumpup
   class << self
-
     MISSING_INTEGRATION_TASKS_CONSTANT_MESSAGE = %{
     You should define INTEGRATION_TASKS constant. We recommend that you define it on lib/tasks/jumpup.rake file. The file doesn't exists. You should create it in your project.
 
@@ -23,8 +22,7 @@ module Jumpup
     }
 
     def perform_integration
-
-      if !defined?(INTEGRATION_TASKS)
+      unless defined?(INTEGRATION_TASKS)
         Jumpup::UI.header MISSING_INTEGRATION_TASKS_CONSTANT_MESSAGE
         exit
       end
@@ -37,18 +35,18 @@ module Jumpup
     end
 
     private
-      def invoke_tasks
-        INTEGRATION_TASKS.each do |subtask|
-          Jumpup::UI.header("--> Executing #{subtask}...".white) do
-            Rake::Task[subtask].invoke
-          end
+
+    def invoke_tasks
+      INTEGRATION_TASKS.each do |subtask|
+        Jumpup::UI.header("--> Executing #{subtask}...".white) do
+          Rake::Task[subtask].invoke
         end
       end
-
+    end
   end
 end
 
 Jumpup.load_tasks
 
-require "jumpup/ui"
-require "jumpup/commands"
+require 'jumpup/ui'
+require 'jumpup/commands'

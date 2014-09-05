@@ -1,13 +1,13 @@
 task :one do
-  puts "One"
+  puts 'One'
 end
 
 task :two do
-  puts "Two"
+  puts 'Two'
 end
 
 task :three do
-  puts "Three"
+  puts 'Three'
 end
 
 INTEGRATION_TASKS = %w(

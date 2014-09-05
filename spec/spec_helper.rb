@@ -1,10 +1,10 @@
-require "bundler/setup"
+require 'bundler/setup'
 
-require "pry"
-require "rake"
-require "jumpup"
+require 'pry'
+require 'rake'
+require 'jumpup'
 
-Dir[File.expand_path("../support/**/*.rb", __FILE__)].each { |f| require f }
+Dir[File.expand_path('../support/**/*.rb', __FILE__)].each { |f| require f }
 
 RSpec.configure do |config|
   config.disable_monkey_patching!
@@ -19,7 +19,5 @@ RSpec.configure do |config|
     mocks.syntax = :expect
     mocks.verify_partial_doubles = true
   end
-  if config.files_to_run.one?
-    config.default_formatter = 'doc'
-  end
+  config.default_formatter = 'doc' if config.files_to_run.one?
 end
