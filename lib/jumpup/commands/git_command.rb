@@ -1,5 +1,7 @@
+require 'rake'
+
 module Jumpup::GitCommand
-  extend Rake::DSL
+  extend ::Rake::DSL
 
   class << self
 
