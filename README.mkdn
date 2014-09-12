@@ -109,14 +109,11 @@ You haven't jumped on the [BDD][BDD] bandwagon yet. Instead, you write tests, wh
 
 ```ruby
 INTEGRATION_TASKS = %w(
-  jumpup:integration:check
-  jumpup:integration:lock
   jumpup:start
   jumpup:bundle_install
   db:migrate
   spec
   jumpup:finish
-  jumpup:integration:unlock
 )
 ```
 
