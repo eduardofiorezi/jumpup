@@ -25,6 +25,7 @@ After installing the gem, you'll need to configure the set of tasks you'll want 
 ```ruby
 INTEGRATION_TASKS = %w(
   jumpup:start
+  jumpup:bundle_install
   db:migrate
   spec
   jumpup:finish
@@ -76,6 +77,7 @@ The integration process is composed of several Rake tasks that are explained bel
 | `tmp:clear`                  | Remove temporary files. |
 | `git:pull`                   | Update local files from the remote git repository. |
 | `jumpup:start`               | Run all the previous tasks on this order |
+| `jumpup:bundle_install`      | Run `bundle install` on quiet mode |
 | `db:migrate`                 | Execute any new database migration created by other team members since the last integration. |
 | `test` or `spec`             | Set the rake task your test/spec suite needs to run. Use a command that generate the coverage files. |
 | `git:push`                   | Push your changes. If any of the previous tasks break, because one test failed, for instance, the script won't push. Actually this task runs only if every checking done before work well. |
@@ -93,6 +95,7 @@ Let's say your project don't have tests but you still want to use jumpup. You mi
 ```ruby
 INTEGRATION_TASKS = %w(
   jumpup:start
+  jumpup:bundle_install
   db:migrate
   jumpup:finish
 )
@@ -109,6 +112,7 @@ INTEGRATION_TASKS = %w(
   jumpup:integration:check
   jumpup:integration:lock
   jumpup:start
+  jumpup:bundle_install
   db:migrate
   spec
   jumpup:finish
