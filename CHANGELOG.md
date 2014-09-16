@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.0.7 (unreleased)
+## 0.0.7 (September 15, 2014)
 
 ### features
 - Implements tasks jumpup:integration:check, jumpup:integration:lock, jumpup:integration:unlock to block a user from integrating while another one is already integrating at same time. It is useful when the project have a lot of tests because it avoids the second user to receive the reject message from git, and have to run all tests again.
