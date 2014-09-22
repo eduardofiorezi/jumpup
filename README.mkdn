@@ -44,6 +44,7 @@ For more information, please have a look at the "[Integration Steps](#integratio
 
 * [jumpup-heroku][jumpup-heroku]
 * [jumpup-hipchat][jumpup-hipchat]
+* [jumpup-deis][jumpup-deis]
 
 ## Dependencies
 
@@ -198,5 +199,6 @@ This gem was created and is maintained by [HE:labs](https://github.com/Helabs).
 [helabs]: http://helabs.com.br/en/
 [jumpup-heroku]: https://github.com/Helabs/jumpup-heroku
 [jumpup-hipchat]: https://github.com/Helabs/jumpup-hipchat
+[jumpup-deis]: https://github.com/Helabs/jumpup-deis
 [travis]: https://travis-ci.org/Helabs/jumpup
 [travis_badge]: https://travis-ci.org/Helabs/jumpup.svg?branch=master
