@@ -1,10 +1,24 @@
 # Changelog
 
-## 0.0.6 (unreleased)
+## 0.0.7 (September 15, 2014)
+
+### features
+- Implements tasks jumpup:integration:check, jumpup:integration:lock, jumpup:integration:unlock to block a user from integrating while another one is already integrating at same time. It is useful when the project have a lot of tests because it avoids the second user to receive the reject message from git, and have to run all tests again.
+- Add quiet git messages on rake integrate.
+
+### improvements
+- Add tests with rspec and aruba
+
+### bug fixes
+- Delete integrating local tag before fetching remote tags
+- Fix "uninitialized constant Jumpup::GitCommand::Rake"
+
+## 0.0.6 (July 11, 2014)
 
 ### features
 
 ### improvements
+- Transfer coverage verification to simplecov
 
 ### bug fixes
 
