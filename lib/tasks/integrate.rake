@@ -8,11 +8,7 @@ namespace :jumpup do
 
     desc 'Update files from repository.'
     task :pull do
-<<<<<<< HEAD
-      sh "git pull"
-=======
       Jumpup::GitCommand.pull
->>>>>>> helabs/master
     end
 
     desc 'Push project.'
